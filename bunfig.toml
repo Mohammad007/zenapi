@@ -1,0 +1,14 @@
+# Bun configuration for ZenAPI
+
+[install]
+# Use exact versions for reproducibility
+exact = true
+
+[run]
+# Enable source maps for better stack traces
+sourcemap = "external"
+
+[test]
+# Test configuration
+coverage = true
+coverageDir = "coverage"

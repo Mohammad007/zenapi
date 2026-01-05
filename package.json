@@ -1,0 +1,78 @@
+{
+    "name": "zenapi",
+    "version": "1.0.0",
+    "description": "🧘 ZenAPI - FastAPI for Bun.js. Same power, more speed. Build REST APIs with decorators, validation, auth, and auto-docs.",
+    "type": "module",
+    "main": "./index.ts",
+    "types": "./index.ts",
+    "exports": {
+        ".": {
+            "import": "./index.ts",
+            "types": "./index.ts"
+        },
+        "./auth": {
+            "import": "./Injection/auth/index.ts",
+            "types": "./Injection/auth/index.ts"
+        },
+        "./database": {
+            "import": "./Injection/database/index.ts",
+            "types": "./Injection/database/index.ts"
+        },
+        "./validation": {
+            "import": "./Injection/validation/index.ts",
+            "types": "./Injection/validation/index.ts"
+        }
+    },
+    "bin": {
+        "zenapi": "./Injection/cli/index.ts"
+    },
+    "scripts": {
+        "dev": "bun run --watch examples/basic/main.ts",
+        "build": "bun build index.ts --outdir dist --target bun",
+        "test": "bun test",
+        "example": "bun run examples/basic/main.ts",
+        "cli": "bun run Injection/cli/index.ts"
+    },
+    "keywords": [
+        "bun",
+        "api",
+        "rest",
+        "framework",
+        "fastapi",
+        "typescript",
+        "decorators",
+        "validation",
+        "jwt",
+        "auth",
+        "openapi",
+        "swagger"
+    ],
+    "author": "Bilal",
+    "license": "MIT",
+    "dependencies": {
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "typescript": "^5.3.3"
+    },
+    "peerDependencies": {
+        "@prisma/client": "^5.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@prisma/client": {
+            "optional": true
+        }
+    },
+    "engines": {
+        "bun": ">=1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bilal/zenapi"
+    },
+    "homepage": "https://github.com/bilal/zenapi#readme",
+    "bugs": {
+        "url": "https://github.com/bilal/zenapi/issues"
+    }
+}
