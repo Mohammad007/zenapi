@@ -236,7 +236,7 @@ class RootController {
         return {
             name: "🧘 ZenAPI",
             version: "1.0.0",
-            message: "Welcome to ZenAPI - FastAPI for Bun.js!",
+            message: "Welcome to ZenAPI for Bun.js!",
             docs: "/docs",
             endpoints: {
                 auth: {

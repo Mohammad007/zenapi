@@ -1,7 +1,7 @@
 {
     "name": "zenapi",
     "version": "1.0.0",
-    "description": "🧘 ZenAPI - FastAPI for Bun.js. Same power, more speed. Build REST APIs with decorators, validation, auth, and auto-docs.",
+    "description": "🧘 ZenAPI for Bun.js. Same power, more speed. Build REST APIs with decorators, validation, auth, and auto-docs.",
     "type": "module",
     "main": "./index.ts",
     "types": "./index.ts",
@@ -38,7 +38,7 @@
         "api",
         "rest",
         "framework",
-        "fastapi",
+        "zenapi",
         "typescript",
         "decorators",
         "validation",

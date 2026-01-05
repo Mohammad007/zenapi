@@ -247,7 +247,7 @@ Thumbs.db
 
     readme: (name: string) => `# ${name}
 
-A modern API built with ZenAPI - FastAPI for Bun.js
+A modern API built with ZenAPI for Bun.js
 
 ## Getting Started
 
