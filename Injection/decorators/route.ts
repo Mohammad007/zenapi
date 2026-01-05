@@ -1,5 +1,5 @@
 /**
- * ZenAPI Route Decorators
+ * AstraAPI Route Decorators
  * HTTP method decorators for defining API endpoints
  */
 

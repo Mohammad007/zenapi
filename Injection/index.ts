@@ -1,5 +1,5 @@
 /**
- * ZenAPI Injection Module Exports
+ * AstraAPI Injection Module Exports
  * All decorators, validation, auth, database, and utilities
  */
 

@@ -1,5 +1,5 @@
 /**
- * ZenAPI Router
+ * AstraAPI Router
  * Fast route matching with parameter extraction
  */
 
@@ -8,7 +8,7 @@ import type {
     RouteDefinition,
     ControllerDefinition,
     MiddlewareFunction,
-    ZenContext,
+    AstraContext,
     ControllerClass,
 } from "./types";
 import { METADATA_KEYS } from "./types";
@@ -84,7 +84,7 @@ export class Router {
         // Get controller metadata
         const metadata = Reflect.getMetadata?.(METADATA_KEYS.CONTROLLER, target);
         if (!metadata) {
-            console.warn(`[ZenAPI] Class ${target.name} is not decorated with @Controller`);
+            console.warn(`[AstraAPI] Class ${target.name} is not decorated with @Controller`);
             return;
         }
 
@@ -167,7 +167,7 @@ export class Router {
         };
 
         if (node.handlers.has(method)) {
-            console.warn(`[ZenAPI] Route ${method} ${path} already exists, overwriting`);
+            console.warn(`[AstraAPI] Route ${method} ${path} already exists, overwriting`);
         }
 
         node.handlers.set(method, compiledRoute);

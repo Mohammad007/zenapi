@@ -1,5 +1,5 @@
 /**
- * ZenAPI Basic Example
+ * AstraAPI Basic Example
  * Demonstrates core features: routing, validation, auth, and decorators
  */
 
@@ -234,9 +234,9 @@ class RootController {
     @Get("/")
     home() {
         return {
-            name: "🧘 ZenAPI",
+            name: "🧘 AstraAPI",
             version: "1.0.0",
-            message: "Welcome to ZenAPI for Bun.js!",
+            message: "Welcome to AstraAPI for Bun.js!",
             docs: "/docs",
             endpoints: {
                 auth: {
@@ -276,9 +276,9 @@ const app = createApp({
         enabled: true,
         path: "/docs",
         info: {
-            title: "ZenAPI Example",
+            title: "AstraAPI Example",
             version: "1.0.0",
-            description: "A REST API built with ZenAPI featuring auth, validation, and CRUD",
+            description: "A REST API built with AstraAPI featuring auth, validation, and CRUD",
         },
     },
 });

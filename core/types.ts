@@ -1,5 +1,5 @@
 /**
- * ZenAPI Core Types
+ * AstraAPI Core Types
  * All TypeScript types and interfaces for the framework
  */
 
@@ -38,7 +38,7 @@ export interface ControllerDefinition {
 // Context Types
 // ============================================
 
-export interface ZenContext {
+export interface AstraContext {
     req: Request;
     params: Record<string, string>;
     query: Record<string, string>;
@@ -52,7 +52,7 @@ export interface ZenContext {
     text: (data: string, status?: number) => Response;
     html: (data: string, status?: number) => Response;
     redirect: (url: string, status?: number) => Response;
-    status: (code: number) => ZenContext;
+    status: (code: number) => AstraContext;
 
     // Request helpers
     getHeader: (name: string) => string | null;
@@ -77,7 +77,7 @@ export interface CookieOptions {
 export type NextFunction = () => Promise<Response> | Response;
 
 export type MiddlewareFunction = (
-    ctx: ZenContext,
+    ctx: AstraContext,
     next: NextFunction
 ) => Promise<Response> | Response;
 
@@ -137,7 +137,7 @@ export interface ParamMetadata {
 // Server Types
 // ============================================
 
-export interface ZenServerOptions {
+export interface AstraServerOptions {
     port?: number;
     hostname?: string;
     development?: boolean;

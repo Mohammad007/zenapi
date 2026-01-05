@@ -1,9 +1,9 @@
 /**
- * ZenAPI Auth Decorators
+ * AstraAPI Auth Decorators
  * Authentication and authorization decorators
  */
 
-import type { MiddlewareFunction, ZenContext } from "../../core/types";
+import type { MiddlewareFunction, AstraContext } from "../../core/types";
 import { METADATA_KEYS } from "../../core/types";
 import { UnauthorizedException, ForbiddenException } from "../exception";
 
@@ -11,7 +11,7 @@ import { UnauthorizedException, ForbiddenException } from "../exception";
  * Guard interface - implement this for custom guards
  */
 export interface Guard {
-    canActivate(ctx: ZenContext): boolean | Promise<boolean>;
+    canActivate(ctx: AstraContext): boolean | Promise<boolean>;
 }
 
 export type GuardClass = new (...args: any[]) => Guard;
@@ -29,7 +29,7 @@ export type GuardClass = new (...args: any[]) => Guard;
 export function UseGuards(...guards: (GuardClass | Guard | MiddlewareFunction)[]): ClassDecorator & MethodDecorator {
     return (target: any, propertyKey?: string | symbol, descriptor?: PropertyDescriptor) => {
         const guardMiddlewares: MiddlewareFunction[] = guards.map((guard) => {
-            return async (ctx: ZenContext, next) => {
+            return async (ctx: AstraContext, next) => {
                 let canActivate = false;
 
                 if (typeof guard === "function" && guard.prototype?.canActivate) {

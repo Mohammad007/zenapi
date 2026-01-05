@@ -1,7 +1,7 @@
-<h1 align="center">🧘 ZenAPI</h1>
+<h1 align="center">🧘 AstraAPI</h1>
 
 <p align="center">
-  <strong>ZenAPI for Bun.js — Same power, more speed</strong>
+  <strong>AstraAPI for Bun.js and Node.js — Same power, more speed</strong>
 </p>
 
 <p align="center">
@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/zenapi"><img src="https://img.shields.io/npm/v/zenapi.svg?style=flat-square&color=blue" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/zenapi"><img src="https://img.shields.io/npm/dm/zenapi.svg?style=flat-square&color=green" alt="npm downloads" /></a>
-  <a href="https://github.com/Mohammad007/zenapi/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square" alt="License" /></a>
-  <a href="https://github.com/Mohammad007/zenapi"><img src="https://img.shields.io/github/stars/Mohammad007/zenapi?style=flat-square&color=orange" alt="GitHub Stars" /></a>
+  <a href="https://www.npmjs.com/package/astraapi"><img src="https://img.shields.io/npm/v/astraapi.svg?style=flat-square&color=blue" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/astraapi"><img src="https://img.shields.io/npm/dm/astraapi.svg?style=flat-square&color=green" alt="npm downloads" /></a>
+  <a href="https://github.com/Mohammad007/astraapi/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square" alt="License" /></a>
+  <a href="https://github.com/Mohammad007/astraapi"><img src="https://img.shields.io/github/stars/Mohammad007/astraapi?style=flat-square&color=orange" alt="GitHub Stars" /></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-Bun-f472b6?style=flat-square" alt="Bun Runtime" /></a>
 </p>
 
@@ -26,9 +26,9 @@
 
 ---
 
-## 🌟 Why ZenAPI?
+## 🌟 Why AstraAPI?
 
-| Feature | Express | NestJS | FastAPI (Python) | **ZenAPI** |
+| Feature | Express | NestJS | FastAPI (Python) | **AstraAPI** |
 |---------|---------|--------|------------------|------------|
 | Decorators | ❌ | ✅ | ✅ | ✅ |
 | Auto Validation | ❌ | ✅ | ✅ | ✅ |
@@ -37,7 +37,7 @@
 | Startup Time | ~300ms | ~500ms | ~200ms | **~10ms** |
 | Runtime | Node | Node | Python | **Bun** |
 
-> **ZenAPI brings the developer experience of FastAPI to the JavaScript/TypeScript ecosystem, running on the fastest JavaScript runtime available.**
+> **AstraAPI brings the developer experience of FastAPI to the JavaScript/TypeScript ecosystem, running on the fastest JavaScript runtime available.**
 
 ---
 
@@ -84,16 +84,16 @@ Built for Bun runtime — ultra-fast startup and execution.
 
 ```bash
 # Install with Bun (recommended)
-bun add zenapi
+bun add astraapi
 
 # Or with npm
-npm install zenapi
+npm install astraapi
 
 # Or with yarn
-yarn add zenapi
+yarn add astraapi
 
 # Or with pnpm
-pnpm add zenapi
+pnpm add astraapi
 ```
 
 **Prerequisites:**
@@ -115,7 +115,7 @@ powershell -c "irm bun.sh/install.ps1 | iex"
 
 ```typescript
 // main.ts
-import { createApp, Controller, Get, Post, Body, z } from "zenapi";
+import { createApp, Controller, Get, Post, Body, z } from "astraapi";
 
 // Define validation schema
 const UserSchema = z.object({
@@ -191,7 +191,7 @@ Open http://localhost:3000/docs for auto-generated Swagger UI! 📚
 Define your API endpoints using decorators:
 
 ```typescript
-import { Controller, Get, Post, Put, Patch, Delete } from "zenapi";
+import { Controller, Get, Post, Put, Patch, Delete } from "astraapi";
 
 @Controller("/products")
 class ProductController {
@@ -225,7 +225,7 @@ Extract data from requests easily:
 import { 
   Controller, Get, Post,
   Param, Query, Body, Headers, CurrentUser, Ctx 
-} from "zenapi";
+} from "astraapi";
 
 @Controller("/items")
 class ItemController {
@@ -242,7 +242,7 @@ class ItemController {
   createItem(
     @Body(ItemSchema) data: CreateItem,   // Validated body
     @CurrentUser() user: any,             // Authenticated user
-    @Ctx() ctx: ZenContext                // Full request context
+    @Ctx() ctx: AstraContext                // Full request context
   ) {
     return { data, userId: user?.id };
   }
@@ -256,7 +256,7 @@ class ItemController {
 Automatic request validation with detailed error messages:
 
 ```typescript
-import { z, Body, Query } from "zenapi";
+import { z, Body, Query } from "astraapi";
 
 // Define schemas
 const CreateUserSchema = z.object({
@@ -308,7 +308,7 @@ listUsers(@Query(PaginationSchema) pagination: z.infer<typeof PaginationSchema>)
 #### JWT Authentication
 
 ```typescript
-import { createAuth, AuthGuard, UseGuards, CurrentUser, Password } from "zenapi";
+import { createAuth, AuthGuard, UseGuards, CurrentUser, Password } from "astraapi";
 
 // Create auth instance
 const auth = createAuth({
@@ -349,7 +349,7 @@ getProfile(@CurrentUser() user: JWTPayload) {
 #### Role-Based Access
 
 ```typescript
-import { Roles, UseGuards } from "zenapi";
+import { Roles, UseGuards } from "astraapi";
 
 @Get("/admin")
 @UseGuards(new AuthGuard(auth))
@@ -369,7 +369,7 @@ moderatorAccess() {
 #### OAuth2 Support
 
 ```typescript
-import { OAuth2, OAuth2Providers } from "zenapi";
+import { OAuth2, OAuth2Providers } from "astraapi";
 
 const googleAuth = new OAuth2(OAuth2Providers.google({
   clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -397,7 +397,7 @@ async googleCallback(@Query("code") code: string) {
 Create reusable services with automatic injection:
 
 ```typescript
-import { Injectable, Controller } from "zenapi";
+import { Injectable, Controller } from "astraapi";
 
 // Define a service
 @Injectable()
@@ -442,7 +442,7 @@ class UserController {
 #### Prisma ORM
 
 ```typescript
-import { createRepository } from "zenapi";
+import { createRepository } from "astraapi";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -468,7 +468,7 @@ const paginated = await userRepo.paginate(1, 10, {
 #### Bun SQLite (Native)
 
 ```typescript
-import { BunSQLite } from "zenapi";
+import { BunSQLite } from "astraapi";
 
 const db = new BunSQLite("./myapp.db");
 
@@ -513,7 +513,7 @@ import {
   NotFoundException,
   ConflictException,
   ValidationException,
-} from "zenapi";
+} from "astraapi";
 
 @Get("/:id")
 async getUser(@Param("id") id: string) {
@@ -583,7 +583,7 @@ const app = createApp({
     info: {
       title: "My API",
       version: "1.0.0",
-      description: "My awesome API built with ZenAPI",
+      description: "My awesome API built with AstraAPI",
     },
     servers: [
       { url: "http://localhost:3000", description: "Development" },
@@ -597,16 +597,16 @@ const app = createApp({
 
 ## 🛠️ CLI
 
-ZenAPI comes with a powerful CLI for scaffolding and code generation.
+AstraAPI comes with a powerful CLI for scaffolding and code generation.
 
 ### Installation
 
 ```bash
 # Global install
-bun install -g zenapi
+bun install -g astraapi
 
 # Or use with bunx
-bunx zenapi <command>
+bunx astraapi <command>
 ```
 
 ### Commands
@@ -614,7 +614,7 @@ bunx zenapi <command>
 #### Create New Project
 
 ```bash
-zenapi new my-app
+astraapi new my-app
 cd my-app
 bun install
 bun run dev
@@ -640,15 +640,15 @@ my-app/
 
 ```bash
 # Generate a controller
-zenapi generate controller product
+astraapi generate controller product
 # Creates: src/controllers/product.controller.ts
 
 # Generate a service
-zenapi generate service product
+astraapi generate service product
 # Creates: src/services/product.service.ts
 
 # Generate full CRUD (controller + service)
-zenapi generate crud order
+astraapi generate crud order
 # Creates both files with full CRUD operations
 ```
 
@@ -656,33 +656,33 @@ zenapi generate crud order
 
 ```bash
 # Generate Prisma client
-zenapi db generate
+astraapi db generate
 
 # Run migrations
-zenapi db migrate
+astraapi db migrate
 
 # Push schema to database
-zenapi db push
+astraapi db push
 
 # Open Prisma Studio
-zenapi db studio
+astraapi db studio
 ```
 
 #### Development
 
 ```bash
 # Start dev server with hot reload
-zenapi dev
+astraapi dev
 
 # Build for production
-zenapi build
+astraapi build
 ```
 
 ---
 
 ## 📁 Project Structure
 
-Recommended structure for ZenAPI projects:
+Recommended structure for AstraAPI projects:
 
 ```
 my-app/
@@ -718,14 +718,14 @@ my-app/
 
 ## 🤝 Contributing
 
-We love contributions! ZenAPI is an open-source project and we welcome contributions from the community.
+We love contributions! AstraAPI is an open-source project and we welcome contributions from the community.
 
 ### How to Contribute
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/Mohammad007/zenapi.git
-   cd zenapi
+   git clone https://github.com/Mohammad007/astraapi.git
+   cd astraapi
    ```
 
 2. **Install dependencies**
@@ -771,7 +771,7 @@ We love contributions! ZenAPI is an open-source project and we welcome contribut
 
 - 🐛 **Bug fixes** - Found a bug? Fix it!
 - 📚 **Documentation** - Improve docs, add examples
-- ✨ **Features** - Check our [issues](https://github.com/Mohammad007/zenapi/issues) for feature requests
+- ✨ **Features** - Check our [issues](https://github.com/Mohammad007/astraapi/issues) for feature requests
 - 🧪 **Tests** - Increase test coverage
 - 🌍 **i18n** - Add translations
 
@@ -779,8 +779,8 @@ We love contributions! ZenAPI is an open-source project and we welcome contribut
 
 ```bash
 # Clone the repo
-git clone https://github.com/Mohammad007/zenapi.git
-cd zenapi
+git clone https://github.com/Mohammad007/astraapi.git
+cd astraapi
 
 # Install dependencies
 bun install
@@ -816,7 +816,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 ## ⭐ Star History
 
-If you find ZenAPI useful, please consider giving it a star! ⭐
+If you find AstraAPI useful, please consider giving it a star! ⭐
 
 ---
 
@@ -825,8 +825,8 @@ If you find ZenAPI useful, please consider giving it a star! ⭐
 </p>
 
 <p align="center">
-  <a href="https://github.com/Mohammad007/zenapi">GitHub</a> •
-  <a href="https://www.npmjs.com/package/zenapi">NPM</a> •
-  <a href="https://twitter.com/zenapi">Twitter</a> •
-  <a href="https://discord.gg/zenapi">Discord</a>
+  <a href="https://github.com/Mohammad007/astraapi">GitHub</a> •
+  <a href="https://www.npmjs.com/package/astraapi">NPM</a> •
+  <a href="https://twitter.com/astraapi">Twitter</a> •
+  <a href="https://discord.gg/astraapi">Discord</a>
 </p>

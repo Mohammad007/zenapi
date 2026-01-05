@@ -1,12 +1,12 @@
 /**
- * ZenAPI Server
+ * AstraAPI Server
  * Main Bun server with all features integrated
  */
 
 import type { Server } from "bun";
 import type {
-    ZenServerOptions,
-    ZenContext,
+    AstraServerOptions,
+    AstraContext,
     MiddlewareFunction,
     ControllerClass,
     HttpMethod,
@@ -20,15 +20,15 @@ import { handleException, NotFoundException, MethodNotAllowedException } from ".
 import { container } from "../context/di";
 
 /**
- * ZenAPI Application
+ * AstraAPI Application
  */
-export class ZenAPI {
+export class AstraAPI {
     private router: Router;
     private server: Server | null = null;
-    private options: Required<ZenServerOptions>;
+    private options: Required<AstraServerOptions>;
     private startTime: number = 0;
 
-    constructor(options: ZenServerOptions = {}) {
+    constructor(options: AstraServerOptions = {}) {
         this.router = globalRouter;
         this.options = this.mergeOptions(options);
 
@@ -51,7 +51,7 @@ export class ZenAPI {
     /**
      * Merge user options with defaults
      */
-    private mergeOptions(options: ZenServerOptions): Required<ZenServerOptions> {
+    private mergeOptions(options: AstraServerOptions): Required<AstraServerOptions> {
         return {
             port: options.port ?? 3000,
             hostname: options.hostname ?? "0.0.0.0",
@@ -63,7 +63,7 @@ export class ZenAPI {
                 enabled: options.openapi?.enabled ?? true,
                 path: options.openapi?.path ?? "/docs",
                 info: {
-                    title: options.openapi?.info?.title ?? "ZenAPI",
+                    title: options.openapi?.info?.title ?? "AstraAPI",
                     version: options.openapi?.info?.version ?? "1.0.0",
                     description: options.openapi?.info?.description ?? "API Documentation",
                 },
@@ -174,7 +174,7 @@ export class ZenAPI {
      * Execute middleware chain
      */
     private async executeMiddlewareChain(
-        ctx: ZenContext,
+        ctx: AstraContext,
         middlewares: MiddlewareFunction[],
         finalHandler: () => Promise<Response>
     ): Promise<Response> {
@@ -201,7 +201,7 @@ export class ZenAPI {
      * Resolve handler parameters
      */
     private async resolveParameters(
-        ctx: ZenContext,
+        ctx: AstraContext,
         metadata: ParamMetadata[],
         definition: any
     ): Promise<unknown[]> {
@@ -258,7 +258,7 @@ export class ZenAPI {
     /**
      * Create response from handler result
      */
-    private createResponse(result: unknown, ctx: ZenContext): Response {
+    private createResponse(result: unknown, ctx: AstraContext): Response {
         // Already a Response
         if (result instanceof Response) {
             return result;
@@ -520,14 +520,14 @@ export class ZenAPI {
                     return this.handleRequest(req);
                 },
                 error: (error) => {
-                    console.error("[ZenAPI] Server error:", error);
+                    console.error("[AstraAPI] Server error:", error);
                     return handleException(error);
                 },
             });
 
             // Print startup message
             console.log("");
-            console.log(" 🧘 \x1b[1m\x1b[35mZenAPI\x1b[0m is running!");
+            console.log(" 🧘 \x1b[1m\x1b[35mAstraAPI\x1b[0m is running!");
             console.log("");
             console.log(` ➜  Local:   \x1b[36mhttp://localhost:${finalPort}\x1b[0m`);
             if (this.options.openapi.enabled) {
@@ -546,7 +546,7 @@ export class ZenAPI {
         if (this.server) {
             this.server.stop();
             this.server = null;
-            console.log("[ZenAPI] Server stopped");
+            console.log("[AstraAPI] Server stopped");
         }
     }
 
@@ -566,8 +566,8 @@ export class ZenAPI {
 }
 
 /**
- * Create a new ZenAPI app
+ * Create a new AstraAPI app
  */
-export function createApp(options?: ZenServerOptions): ZenAPI {
-    return new ZenAPI(options);
+export function createApp(options?: AstraServerOptions): AstraAPI {
+    return new AstraAPI(options);
 }

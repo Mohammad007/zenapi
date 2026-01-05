@@ -1,5 +1,5 @@
 /**
- * ZenAPI Exception System
+ * AstraAPI Exception System
  * HTTP exceptions with proper error responses
  */
 
@@ -195,13 +195,13 @@ export function handleException(error: unknown): Response {
 
     // Handle standard errors
     if (error instanceof Error) {
-        console.error("[ZenAPI Error]", error.stack || error.message);
+        console.error("[AstraAPI Error]", error.stack || error.message);
         return new InternalServerException(
             process.env.NODE_ENV === "production" ? "Internal Server Error" : error.message
         ).toResponse();
     }
 
     // Unknown error type
-    console.error("[ZenAPI Error]", error);
+    console.error("[AstraAPI Error]", error);
     return new InternalServerException("An unexpected error occurred").toResponse();
 }

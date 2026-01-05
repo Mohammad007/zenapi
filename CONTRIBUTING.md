@@ -1,8 +1,8 @@
-# Contributing to ZenAPI
+# Contributing to AstraAPI
 
-First off, thank you for considering contributing to ZenAPI! 🎉
+First off, thank you for considering contributing to AstraAPI! 🎉
 
-It's people like you that make ZenAPI such a great tool for the Bun community.
+It's people like you that make AstraAPI such a great tool for the Bun community.
 
 ## 📋 Table of Contents
 
@@ -41,13 +41,13 @@ This project and everyone participating in it is governed by our Code of Conduct
 1. Fork the repository on GitHub
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/Mohammad007/zenapi.git
-   cd zenapi
+   git clone https://github.com/Mohammad007/astraapi.git
+   cd astraapi
    ```
 
 3. Add the upstream remote:
    ```bash
-   git remote add upstream https://github.com/Mohammad007/zenapi.git
+   git remote add upstream https://github.com/Mohammad007/astraapi.git
    ```
 
 ## 💻 Development Setup
@@ -75,7 +75,7 @@ This project and everyone participating in it is governed by our Code of Conduct
 ### Project Structure
 
 ```
-zenapi/
+astraapi/
 ├── core/           # Core framework (server, router, context)
 ├── context/        # Dependency Injection
 ├── Injection/      # Features (decorators, auth, db, cli)
@@ -106,9 +106,9 @@ We welcome many types of contributions:
 
 ### Finding Issues to Work On
 
-- Look for issues labeled [`good first issue`](https://github.com/Mohammad007/zenapi/labels/good%20first%20issue) - great for newcomers!
-- Check [`help wanted`](https://github.com/Mohammad007/zenapi/labels/help%20wanted) for issues needing help
-- Browse [`enhancement`](https://github.com/Mohammad007/zenapi/labels/enhancement) for feature requests
+- Look for issues labeled [`good first issue`](https://github.com/Mohammad007/astraapi/labels/good%20first%20issue) - great for newcomers!
+- Check [`help wanted`](https://github.com/Mohammad007/astraapi/labels/help%20wanted) for issues needing help
+- Browse [`enhancement`](https://github.com/Mohammad007/astraapi/labels/enhancement) for feature requests
 
 ### Working on an Issue
 
@@ -264,7 +264,7 @@ Before reporting a bug:
 When reporting, include:
 
 - **Title:** Clear, descriptive title
-- **Environment:** Bun version, OS, ZenAPI version
+- **Environment:** Bun version, OS, AstraAPI version
 - **Steps to Reproduce:** Minimal code to reproduce
 - **Expected Behavior:** What you expected to happen
 - **Actual Behavior:** What actually happened
@@ -287,7 +287,7 @@ What you expected to happen.
 **Environment:**
 - OS: [e.g., Windows 11]
 - Bun version: [e.g., 1.0.0]
-- ZenAPI version: [e.g., 1.0.0]
+- AstraAPI version: [e.g., 1.0.0]
 
 **Additional context**
 Any other context about the problem.
@@ -311,14 +311,14 @@ When suggesting, include:
 
 ## 🙏 Thank You!
 
-Every contribution, no matter how small, is valued. Whether you're fixing a typo, reporting a bug, or implementing a major feature, you're helping make ZenAPI better for everyone.
+Every contribution, no matter how small, is valued. Whether you're fixing a typo, reporting a bug, or implementing a major feature, you're helping make AstraAPI better for everyone.
 
 **Happy coding!** 🧘
 
 ---
 
 <p align="center">
-  <a href="https://github.com/Mohammad007/zenapi">GitHub</a> •
-  <a href="https://discord.gg/zenapi">Discord</a> •
-  <a href="https://twitter.com/zenapi">Twitter</a>
+  <a href="https://github.com/Mohammad007/astraapi">GitHub</a> •
+  <a href="https://discord.gg/astraapi">Discord</a> •
+  <a href="https://twitter.com/astraapi">Twitter</a>
 </p>

@@ -1,5 +1,5 @@
 /**
- * ZenAPI Parameter Decorators
+ * AstraAPI Parameter Decorators
  * Decorators for extracting request data
  */
 
@@ -107,7 +107,7 @@ export const Headers = createParamDecorator("headers");
  * @example
  * ```ts
  * @Get("/info")
- * getInfo(@Ctx() ctx: ZenContext) {
+ * getInfo(@Ctx() ctx: AstraContext) {
  *   return { url: ctx.req.url }
  * }
  * ```

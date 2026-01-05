@@ -1,14 +1,14 @@
 #!/usr/bin/env bun
 /**
- * ZenAPI CLI
- * Command-line interface for ZenAPI projects
+ * AstraAPI CLI
+ * Command-line interface for AstraAPI projects
  * 
  * Usage:
- *   zenapi new <project-name>    Create a new project
- *   zenapi dev                   Start development server
- *   zenapi build                 Build for production
- *   zenapi generate <type>       Generate code (controller, service, etc.)
- *   zenapi db <command>          Database operations
+ *   astraapi new <project-name>    Create a new project
+ *   astraapi dev                   Start development server
+ *   astraapi build                 Build for production
+ *   astraapi generate <type>       Generate code (controller, service, etc.)
+ *   astraapi db <command>          Database operations
  */
 
 import { existsSync, mkdirSync, writeFileSync, readdirSync } from "fs";
@@ -61,7 +61,7 @@ const templates = {
     "db:push": "bunx prisma db push"
   },
   "dependencies": {
-    "zenapi": "^1.0.0",
+    "astraapi": "^1.0.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -92,7 +92,7 @@ const templates = {
     mainTs: () => `/**
  * Main application entry point
  */
-import { createApp } from "zenapi";
+import { createApp } from "astraapi";
 import { UserController } from "./controllers/user.controller";
 
 const app = createApp({
@@ -103,7 +103,7 @@ const app = createApp({
     enabled: true,
     path: "/docs",
     info: {
-      title: "My ZenAPI App",
+      title: "My AstraAPI App",
       version: "1.0.0",
     },
   },
@@ -119,8 +119,8 @@ app.listen();
     userController: () => `/**
  * User Controller
  */
-import { Controller, Get, Post, Put, Delete, Body, Param, Query } from "zenapi";
-import { z } from "zenapi";
+import { Controller, Get, Post, Put, Delete, Body, Param, Query } from "astraapi";
+import { z } from "astraapi";
 
 // Validation schemas
 const CreateUserSchema = z.object({
@@ -247,7 +247,7 @@ Thumbs.db
 
     readme: (name: string) => `# ${name}
 
-A modern API built with ZenAPI for Bun.js
+A modern API built with AstraAPI for Bun.js and Node.js
 
 ## Getting Started
 
@@ -291,8 +291,8 @@ MIT
     controllerTemplate: (name: string, Name: string) => `/**
  * ${Name} Controller
  */
-import { Controller, Get, Post, Put, Delete, Body, Param, Query } from "zenapi";
-import { z } from "zenapi";
+import { Controller, Get, Post, Put, Delete, Body, Param, Query } from "astraapi";
+import { z } from "astraapi";
 
 // Validation schemas
 const Create${Name}Schema = z.object({
@@ -338,7 +338,7 @@ export class ${Name}Controller {
     serviceTemplate: (name: string, Name: string) => `/**
  * ${Name} Service
  */
-import { Injectable } from "zenapi";
+import { Injectable } from "astraapi";
 
 @Injectable()
 export class ${Name}Service {
@@ -388,7 +388,7 @@ async function createProject(name: string) {
         process.exit(1);
     }
 
-    log(`\n🧘 Creating ZenAPI project: ${name}\n`, "magenta");
+    log(`\n🧘 Creating AstraAPI project: ${name}\n`, "magenta");
 
     // Create directories
     const dirs = [
@@ -435,7 +435,7 @@ async function generateCode(type: string, name: string) {
     const srcPath = resolve(process.cwd(), "src");
 
     if (!existsSync(srcPath)) {
-        error("Not in a ZenAPI project directory (src/ not found)");
+        error("Not in a AstraAPI project directory (src/ not found)");
         process.exit(1);
     }
 
@@ -498,7 +498,7 @@ async function runDev() {
     const mainFile = resolve(process.cwd(), "src/main.ts");
 
     if (!existsSync(mainFile)) {
-        error("src/main.ts not found. Are you in a ZenAPI project?");
+        error("src/main.ts not found. Are you in a AstraAPI project?");
         process.exit(1);
     }
 
@@ -516,7 +516,7 @@ async function runBuild() {
     const mainFile = resolve(process.cwd(), "src/main.ts");
 
     if (!existsSync(mainFile)) {
-        error("src/main.ts not found. Are you in a ZenAPI project?");
+        error("src/main.ts not found. Are you in a AstraAPI project?");
         process.exit(1);
     }
 
@@ -562,13 +562,13 @@ async function dbCommand(command: string) {
 
 function showHelp() {
     console.log(`
-${colors.magenta}${colors.bold}🧘 ZenAPI CLI${colors.reset}
+${colors.magenta}${colors.bold}🧘 AstraAPI CLI${colors.reset}
 
 ${colors.cyan}Usage:${colors.reset}
-  zenapi <command> [options]
+  astraapi <command> [options]
 
 ${colors.cyan}Commands:${colors.reset}
-  ${colors.green}new${colors.reset} <name>              Create a new ZenAPI project
+  ${colors.green}new${colors.reset} <name>              Create a new AstraAPI project
   ${colors.green}dev${colors.reset}                     Start development server
   ${colors.green}build${colors.reset}                   Build for production
   ${colors.green}generate${colors.reset} <type> <name>  Generate code
@@ -582,18 +582,18 @@ ${colors.cyan}Commands:${colors.reset}
     - studio                Open Prisma Studio
 
 ${colors.cyan}Examples:${colors.reset}
-  zenapi new my-app
-  zenapi generate controller user
-  zenapi generate crud product
-  zenapi db migrate
+  astraapi new my-app
+  astraapi generate controller user
+  astraapi generate crud product
+  astraapi db migrate
 
 ${colors.cyan}Documentation:${colors.reset}
-  https://github.com/zenapi/zenapi
+  https://github.com/Mohammad007/astraapi
 `);
 }
 
 function showVersion() {
-    console.log("zenapi v1.0.0");
+    console.log("astraapi v1.0.0");
 }
 
 // ============================================
@@ -620,7 +620,7 @@ async function main() {
         case "init":
             if (!args[1]) {
                 error("Please provide a project name");
-                log("Usage: zenapi new <project-name>", "dim");
+                log("Usage: astraapi new <project-name>", "dim");
                 process.exit(1);
             }
             await createProject(args[1]);
@@ -639,7 +639,7 @@ async function main() {
         case "g":
             if (!args[1] || !args[2]) {
                 error("Please provide type and name");
-                log("Usage: zenapi generate <type> <name>", "dim");
+                log("Usage: astraapi generate <type> <name>", "dim");
                 log("Types: controller (c), service (s), crud", "dim");
                 process.exit(1);
             }
@@ -649,7 +649,7 @@ async function main() {
         case "db":
             if (!args[1]) {
                 error("Please provide a db command");
-                log("Usage: zenapi db <command>", "dim");
+                log("Usage: astraapi db <command>", "dim");
                 log("Commands: generate, migrate, push, studio", "dim");
                 process.exit(1);
             }
@@ -658,7 +658,7 @@ async function main() {
 
         default:
             error(`Unknown command: ${command}`);
-            log("Run 'zenapi help' for available commands", "dim");
+            log("Run 'astraapi help' for available commands", "dim");
             process.exit(1);
     }
 }

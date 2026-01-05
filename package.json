@@ -1,7 +1,7 @@
 {
-    "name": "zenapi",
+    "name": "astraapi",
     "version": "1.0.0",
-    "description": "🧘 ZenAPI for Bun.js. Same power, more speed. Build REST APIs with decorators, validation, auth, and auto-docs.",
+    "description": "🧘 AstraAPI for Bun.js and Node.js. Same power, more speed. Build REST APIs with decorators, validation, auth, and auto-docs.",
     "type": "module",
     "main": "./index.ts",
     "types": "./index.ts",
@@ -24,7 +24,7 @@
         }
     },
     "bin": {
-        "zenapi": "./Injection/cli/index.ts"
+        "astraapi": "./Injection/cli/index.ts"
     },
     "scripts": {
         "dev": "bun run --watch examples/basic/main.ts",
@@ -38,7 +38,7 @@
         "api",
         "rest",
         "framework",
-        "zenapi",
+        "astraapi",
         "typescript",
         "decorators",
         "validation",
@@ -47,7 +47,7 @@
         "openapi",
         "swagger"
     ],
-    "author": "Bilal",
+    "author": "Mohammad007",
     "license": "MIT",
     "dependencies": {
         "zod": "^3.22.4"
@@ -69,10 +69,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/bilal/zenapi"
+        "url": "https://github.com/Mohammad007/astraapi"
     },
-    "homepage": "https://github.com/bilal/zenapi#readme",
+    "homepage": "https://github.com/Mohammad007/astraapi#readme",
     "bugs": {
-        "url": "https://github.com/bilal/zenapi/issues"
+        "url": "https://github.com/Mohammad007/astraapi/issues"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

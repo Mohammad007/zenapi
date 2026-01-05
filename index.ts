@@ -1,11 +1,11 @@
 /**
- * 🧘 ZenAPI for Bun.js
+ * 🧘 AstraAPI for Bun.js and Node.js
  * Same power, more speed
  * 
  * @example
  * ```ts
- * import { createApp, Controller, Get, Post, Body } from "zenapi";
- * import { z } from "zenapi";
+ * import { createApp, Controller, Get, Post, Body } from "astraapi";
+ * import { z } from "astraapi";
  * 
  * const UserSchema = z.object({
  *   name: z.string(),
@@ -33,7 +33,7 @@
 
 // Core
 export {
-    ZenAPI,
+    AstraAPI,
     createApp,
 } from "./core/server";
 
@@ -49,8 +49,8 @@ export {
 
 // Types
 export type {
-    ZenContext,
-    ZenServerOptions,
+    AstraContext,
+    AstraServerOptions,
     HttpMethod,
     RouteDefinition,
     ControllerDefinition,
@@ -138,7 +138,7 @@ export type {
 
 // Authentication
 export {
-    ZenAuth,
+    AstraAuth,
     createAuth,
     AuthGuard,
     createAuthMiddleware,

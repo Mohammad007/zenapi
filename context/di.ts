@@ -1,5 +1,5 @@
 /**
- * ZenAPI Dependency Injection Container
+ * AstraAPI Dependency Injection Container
  * Simple but powerful DI system
  */
 

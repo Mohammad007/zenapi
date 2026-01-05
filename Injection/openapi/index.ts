@@ -1,5 +1,5 @@
 /**
- * ZenAPI OpenAPI Generator
+ * AstraAPI OpenAPI Generator
  * Generates OpenAPI 3.0 specification from routes
  */
 

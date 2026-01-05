@@ -1,5 +1,5 @@
 /**
- * ZenAPI Controller Decorator
+ * AstraAPI Controller Decorator
  * Marks a class as an API controller with route prefix
  */
 

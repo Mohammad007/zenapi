@@ -1,5 +1,5 @@
 /**
- * ZenAPI Core Module Exports
+ * AstraAPI Core Module Exports
  */
 
 export * from "./types";

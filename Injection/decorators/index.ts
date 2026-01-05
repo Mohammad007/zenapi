@@ -1,5 +1,5 @@
 /**
- * ZenAPI Decorators - Main Export
+ * AstraAPI Decorators - Main Export
  */
 
 // Controller

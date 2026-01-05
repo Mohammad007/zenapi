@@ -1,5 +1,5 @@
 /**
- * ZenAPI Database Layer
+ * AstraAPI Database Layer
  * Prisma + SQLite integration
  */
 

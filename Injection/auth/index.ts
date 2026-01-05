@@ -1,10 +1,10 @@
 /**
- * ZenAPI Auth System
+ * AstraAPI Auth System
  * JWT + OAuth2 authentication
  */
 
 import { UnauthorizedException, ForbiddenException } from "../exception";
-import type { ZenContext, MiddlewareFunction } from "../../core/types";
+import type { AstraContext, MiddlewareFunction } from "../../core/types";
 import type { Guard } from "../decorators/auth";
 
 /**
@@ -36,17 +36,17 @@ export interface JWTPayload {
 }
 
 /**
- * ZenAuth - JWT Authentication Service
+ * AstraAuth - JWT Authentication Service
  */
-export class ZenAuth {
+export class AstraAuth {
     private config: Required<JWTConfig>;
 
     constructor(config: JWTConfig) {
         this.config = {
             secret: config.secret,
             expiresIn: config.expiresIn || "1h",
-            issuer: config.issuer || "zenapi",
-            audience: config.audience || "zenapi",
+            issuer: config.issuer || "astraapi",
+            audience: config.audience || "astraapi",
             algorithm: config.algorithm || "HS256",
         };
     }
@@ -195,17 +195,17 @@ export class ZenAuth {
 /**
  * Create a JWT auth instance
  */
-export function createAuth(config: JWTConfig): ZenAuth {
-    return new ZenAuth(config);
+export function createAuth(config: JWTConfig): AstraAuth {
+    return new AstraAuth(config);
 }
 
 /**
  * Auth Guard - Protects routes with JWT authentication
  */
 export class AuthGuard implements Guard {
-    constructor(private auth: ZenAuth) { }
+    constructor(private auth: AstraAuth) { }
 
-    async canActivate(ctx: ZenContext): Promise<boolean> {
+    async canActivate(ctx: AstraContext): Promise<boolean> {
         const authHeader = ctx.headers.get("Authorization");
 
         if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -230,7 +230,7 @@ export class AuthGuard implements Guard {
 /**
  * Create an auth guard middleware
  */
-export function createAuthMiddleware(auth: ZenAuth): MiddlewareFunction {
+export function createAuthMiddleware(auth: AstraAuth): MiddlewareFunction {
     return async (ctx, next) => {
         const guard = new AuthGuard(auth);
         await guard.canActivate(ctx);
@@ -241,7 +241,7 @@ export function createAuthMiddleware(auth: ZenAuth): MiddlewareFunction {
 /**
  * Optional auth middleware - doesn't throw if no token
  */
-export function createOptionalAuthMiddleware(auth: ZenAuth): MiddlewareFunction {
+export function createOptionalAuthMiddleware(auth: AstraAuth): MiddlewareFunction {
     return async (ctx, next) => {
         const authHeader = ctx.headers.get("Authorization");
 

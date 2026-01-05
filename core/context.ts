@@ -1,9 +1,9 @@
 /**
- * ZenAPI Context
+ * AstraAPI Context
  * Request/Response context
  */
 
-import type { ZenContext, CookieOptions } from "./types";
+import type { AstraContext, CookieOptions } from "./types";
 
 /**
  * Create a new context for each request
@@ -11,14 +11,14 @@ import type { ZenContext, CookieOptions } from "./types";
 export function createContext(
     req: Request,
     params: Record<string, string> = {}
-): ZenContext {
+): AstraContext {
     const url = new URL(req.url);
     const query = Object.fromEntries(url.searchParams.entries());
 
     let _statusCode = 200;
     const _cookies: Map<string, { value: string; options: CookieOptions }> = new Map();
 
-    const ctx: ZenContext = {
+    const ctx: AstraContext = {
         req,
         params,
         query,
@@ -162,7 +162,7 @@ export async function parseBody(req: Request): Promise<unknown> {
 
         return undefined;
     } catch (error) {
-        console.error("[ZenAPI] Error parsing body:", error);
+        console.error("[AstraAPI] Error parsing body:", error);
         return undefined;
     }
 }

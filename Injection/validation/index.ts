@@ -1,5 +1,5 @@
 /**
- * ZenAPI Validation with Zod
+ * AstraAPI Validation with Zod
  * Schema validation utilities for request/response
  */
 
