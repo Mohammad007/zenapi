@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Mohammad007/zenapi/main/assets/logo.png" alt="ZenAPI Logo" width="200" />
-</p>
-
 <h1 align="center">🧘 ZenAPI</h1>
 
 <p align="center">
